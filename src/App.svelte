@@ -17,7 +17,9 @@
       <div class="bg-black bg-opacity-65 rounded-3xl">
         <ResultPlace />
       </div>
-      
+      <div class="grid border">
+        123
+      </div>
       <div class="grid grid-cols-1 overflow-hidden rounded-2xl">
         <MoreOrLessPlace />
         <IconCountPlace />
