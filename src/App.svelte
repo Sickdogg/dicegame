@@ -8,15 +8,29 @@
 
 <div class="w-[100dvw] h-[100dvh] bg-green-900 p-1">
   <div class="w-full h-full flex flex-col justify-between">
-    <CountGamePlace />
-
-    <MoreOrLessPlace />
-
     <IconCountPlace />
 
-    <ResultPlace />
+    <CountGamePlace />
+
+    <div class="grid grid-cols-1">
+      <ResultPlace />
+      <MoreOrLessPlace />
+    </div>
 
     <BetSetting />
+
+    <div class="grid grid-cols-8 w-full">
+      <div
+        class="col-span-4 flex justify-center items-center bg-black bg-opacity-45 text-white"
+      >
+        USTD
+      </div>
+      <div
+        class="col-span-4 flex justify-center items-center bg-black bg-opacity-45 text-white"
+      >
+        BET
+      </div>
+    </div>
   </div>
 
   <!-- end -->
