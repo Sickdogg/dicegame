@@ -1,5 +1,5 @@
 <div class=" flex justify-center items-center">
-    <div class="py-2 px-4 rounded-[1.2rem] w-[90%] bg-black bg-opacity-45">
+    <div class="py-2 px-4 w-[100%]">
         <slot></slot>
     </div>
 </div>

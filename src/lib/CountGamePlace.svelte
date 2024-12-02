@@ -1,4 +1,4 @@
-<div>
+<div class="">
     <!-- bet count place -->
     <div class="grid grid-cols-1 gap-1">
       <div class="grid grid-cols-8 gap-1 text-center text-green-200 text-lg font-bold">
@@ -93,13 +93,13 @@
     
     <!-- number of bet -->
     <div class="grid grid-cols-8 gap-1 text-center text-[0.7rem]">
-      <div class=" text-yellow-400 font-bold">1:X</div>
-      <div class=" text-green-200">2.5</div>
-      <div class=" text-green-200">2</div>
-      <div class=" text-green-200">4</div>
-      <div class=" text-green-200">15</div>
-      <div class=" text-green-200">100</div>
-      <div class=" text-green-200">1250</div>
-      <div class=" text-green-200">40000</div>
+      <div class="text-yellow-400 font-bold">1:X</div>
+      <div class="text-green-200">2.5</div>
+      <div class="text-green-200">2</div>
+      <div class="text-green-200">4</div>
+      <div class="text-green-200">15</div>
+      <div class="text-green-200">100</div>
+      <div class="text-green-200">1250</div>
+      <div class="text-green-200">40000</div>
     </div>
-  </div>
+</div>
