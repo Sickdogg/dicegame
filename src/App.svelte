@@ -8,7 +8,7 @@
 </script>
 
 <div
-  class="p-1 w-[100dvw] h-[100dvh] flex justify-center items-center bg-green-700"
+  class="w-[100dvw] h-[100dvh] flex justify-center items-center bg-green-700"
 >
   <div
     class="w-full h-full max-w-[425px] flex flex-col justify-between bg-green-900"
@@ -18,7 +18,7 @@
         <ResultPlace />
       </div>
       <div class="grid border">
-        123
+        歷史紀錄
       </div>
       <div class="grid grid-cols-1 overflow-hidden rounded-2xl">
         <MoreOrLessPlace />
