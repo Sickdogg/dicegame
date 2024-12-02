@@ -7,30 +7,28 @@
   import MoneyState from "./lib/MoneyState.svelte";
 </script>
 
-<div
-  class="w-[100dvw] h-[100dvh] flex justify-center items-center bg-green-700"
->
+<div class="w-[100dvw] h-[100dvh] flex justify-center items-center">
   <div
     class="w-full h-full max-w-[425px] flex flex-col justify-between bg-green-900"
   >
-    <div class="py-2 px-4 flex-1 flex flex-col justify-between">
-      <div class="bg-black bg-opacity-65 rounded-3xl">
-        <ResultPlace />
+    <div class="py-2 px-4 flex-1 flex flex-col justify-around">
+      <div class="pb-10">
+        <div class=" bg-black bg-opacity-65 rounded-3xl">
+          <ResultPlace />
+        </div>
       </div>
-      <div class="grid border">
-        歷史紀錄
-      </div>
+
       <div class="grid grid-cols-1 overflow-hidden rounded-2xl">
         <MoreOrLessPlace />
         <IconCountPlace />
       </div>
+
+      <div class="">
+        <CountGamePlace />
+      </div>
     </div>
 
     <div class="grid grid-cols-1 gap-4">
-      <div class="min-[350px]:px-5">
-        <CountGamePlace />
-      </div>
-
       <div>
         <BetSetting />
 

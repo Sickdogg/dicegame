@@ -2,11 +2,13 @@
     <div
       class="col-span-4 flex justify-center items-center bg-black bg-opacity-45 text-white"
     >
-      USTD
+      <p>USDT:</p>
+      <p class="text-yellow-500">USDT</p>
     </div>
     <div
       class="col-span-4 flex justify-center items-center bg-black bg-opacity-45 text-white"
     >
-      BET
+      <p>BET:</p>
+      <p class="text-yellow-500">$$$</p>
     </div>
   </div>
