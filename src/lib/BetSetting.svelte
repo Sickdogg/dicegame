@@ -1,13 +1,16 @@
 <script>
-    let count = 0;
+    import { bet } from '../stores/store.js';
 
     function decrement() {
-        count -= 1;
+        bet.update(n => n - 1);
     }
 
     function increment() {
-        count += 1;
+        bet.update(n => n + 1);
     }
+
+    $: betImage = $bet <= 10 ? './dollar-blue.svg' : $bet <= 25 ? './dollar-red.svg' : './dollar-gold.svg';
+    $: textColor = $bet > 25 ? 'text-black' : 'text-white';
 </script>
 
 <div class="bg-black bg-opacity-45 rounded-t-3xl">
@@ -35,8 +38,9 @@
             </svg>
         </button>
 
-        <div class="p-2 flex justify-center items-center text-white">
-            {count}
+        <div class="p-2 flex justify-center items-center relative">
+            <img src={betImage} alt="Poker Piece" class="w-[3rem]" />
+            <div class="absolute inset-0 flex justify-center items-center {textColor}">{$bet}</div>
         </div>
 
         <button
