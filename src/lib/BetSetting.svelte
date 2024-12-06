@@ -1,5 +1,6 @@
 <script>
     import { bet } from '../stores/store.js';
+    import BetImg from './components/BetImg.svelte';
 
     function decrement() {
         bet.update(n => n - 1);
@@ -37,11 +38,8 @@
                 />
             </svg>
         </button>
-
-        <div class="p-2 flex justify-center items-center relative">
-            <img src={betImage} alt="Poker Piece" class="w-[3rem]" />
-            <div class="absolute inset-0 flex justify-center items-center {textColor}">{$bet}</div>
-        </div>
+        
+        <BetImg bind:bet={$bet} />    
 
         <button
             class="p-2 flex justify-center items-center"
