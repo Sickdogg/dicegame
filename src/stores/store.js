@@ -2,7 +2,7 @@
 import { writable } from 'svelte/store';
 
 // 定義 store
-export const bet = writable(0);
+export const bet = writable(1);
 export const money = writable(0);
 export const result = writable([0,1,2,3,4,5]);
 export const iconState = writable(0);

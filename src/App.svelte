@@ -9,25 +9,22 @@
 
 <div class="w-[100dvw] h-[100dvh] flex justify-center items-center">
   <div
-    class="w-full h-full max-w-[425px] flex flex-col justify-between bg-green-900"
+    class="px-1 w-full h-full max-w-[425px] flex flex-col justify-between bg-green-900"
   >
-    <div class="py-2 px-4 flex-1 flex flex-col justify-around">
-      <div class="pb-10">
-        <div class=" bg-black bg-opacity-65 rounded-3xl">
-          <ResultPlace />
-        </div>
+  <!-- Main -->
+    <div class="py-3 flex-1 flex flex-col justify-between">
+      <div class=" bg-black bg-opacity-65 rounded-3xl">
+        <ResultPlace />
       </div>
 
-      <div class="grid grid-cols-1 overflow-hidden rounded-2xl">
+      <div class="grid grid-cols-1 gap-3 overflow-hidden rounded-2xl">
         <MoreOrLessPlace />
         <IconCountPlace />
-      </div>
-
-      <div class="">
         <CountGamePlace />
       </div>
     </div>
 
+    <!-- Footer -->
     <div class="grid grid-cols-1 gap-4">
       <div>
         <BetSetting />

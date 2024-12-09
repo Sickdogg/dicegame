@@ -1,5 +1,5 @@
 <div class=" flex justify-center items-center">
-    <div class="py-2 px-4 w-[100%]">
+    <div class="px-4 w-[100%]">
         <slot></slot>
     </div>
 </div>
