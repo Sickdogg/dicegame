@@ -6,6 +6,7 @@
   import BetSetting from "./lib/BetSetting.svelte";
   import MoneyState from "./lib/MoneyState.svelte";
   import ItemArea from "./lib/ItemArea.svelte";
+  import Questions from "./lib/uitls/questions.svelte";
 
   import { playMusic } from "./stores/uitls/sound";
   let showStartPlay = true;
@@ -24,8 +25,9 @@
   </div>
 {:else}
   <div class="w-[100dvw] h-[100dvh] flex justify-center items-center">
+    <Questions />
     <div
-      class="px-1 w-full h-full max-w-[425px] flex flex-col justify-between bg-green-900"
+      class="px-2 pt-2 w-full h-full max-w-[425px] flex flex-col justify-between bg-green-900"
     >
       <!-- Main -->
       <div class="py-3 flex-1 flex flex-col justify-between">
@@ -37,18 +39,17 @@
           <MoreOrLessPlace />
           <IconCountPlace />
           <CountGamePlace />
-        </div>
-      </div>
+          <!-- Footer -->
+          <div
+            class="grid grid-cols-1 gap-4 bg-black bg-opacity-45 rounded-t-3xl"
+          >
+            <div>
+              <ItemArea />
+              <BetSetting />
 
-      <!-- Footer -->
-      <div
-        class="grid grid-cols-1 gap-4 bg-black bg-opacity-45 rounded-t-3xl"
-      >
-        <div>
-          <ItemArea />
-          <BetSetting />
-
-          <MoneyState />
+              <MoneyState />
+            </div>
+          </div>
         </div>
       </div>
     </div>
