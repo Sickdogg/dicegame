@@ -23,7 +23,7 @@
         >
             小
             {#if $moreAndLess[0] > 0}
-            <div class=" absolute top-0 left-0">
+            <div class=" absolute top-0 left-0 w-full h-full flex justify-start items-center">
                 <BetImg bind:bet ={$moreAndLess[0]} w={"w-[2rem]"} />
             </div>
                 
@@ -44,7 +44,7 @@
         >
             大
             {#if $moreAndLess[1] > 0}
-            <div class=" absolute top-0 left-0">
+            <div class=" absolute top-0 left-0 w-full h-full flex justify-end items-center">
                 <BetImg bind:bet ={$moreAndLess[1]} w={"w-[2rem]"} />
             </div>
             {/if}

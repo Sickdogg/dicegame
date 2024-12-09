@@ -6,7 +6,7 @@
     $:if (bet >= 300) bet = 300;
 </script>
 
-<div class="p-2 flex justify-center items-center relative">
-    <img src={betImage} alt="Poker Piece" class="{w}" />
+<div class="flex justify-center items-center relative">
+    <img src={betImage} alt="Poker Piece" class={w} />
     <div class="absolute inset-0 flex justify-center items-center {textColor}">{bet}</div>
 </div>

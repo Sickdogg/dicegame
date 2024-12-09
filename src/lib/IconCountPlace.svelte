@@ -49,7 +49,7 @@
                     class="w-full max-w-[50px] max-h-[50px]"
                 />
                 {#if $iconState[index] > 0}
-                    <div class=" absolute top-0 left-0">
+                    <div class="  absolute top-1 left-0 w-full h-full flex justify-center items-end">
                         <BetImg bind:bet={$iconState[index]} w={"w-[2rem]"} />
                     </div>
                 {/if}
