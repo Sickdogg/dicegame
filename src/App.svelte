@@ -42,7 +42,7 @@
 
       <!-- Footer -->
       <div
-        class="py-3 grid grid-cols-1 gap-4 bg-black bg-opacity-45 rounded-t-3xl"
+        class="grid grid-cols-1 gap-4 bg-black bg-opacity-45 rounded-t-3xl"
       >
         <div>
           <ItemArea />

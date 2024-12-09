@@ -4,7 +4,7 @@
     import Trash from "./uitls/trash.svelte";
 </script>
 
-<div class="grid grid-cols-5">
+<div class="py-2 grid grid-cols-5">
     <Sound/>
 
     <Trash/>
