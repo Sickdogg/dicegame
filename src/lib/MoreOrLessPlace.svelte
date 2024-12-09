@@ -4,8 +4,6 @@
     import { moreAndLess } from "../stores/store.js";
     import {bet} from "../stores/store.js";
 
-    $:smallBet = 0;
-    $:bigBet = 0;
 </script>
 
 <PadingLayout>
@@ -16,16 +14,17 @@
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div
             on:click={() => {
-                $moreAndLess = 0;
-                bigBet = 0;
-                smallBet +=$bet;
+                $moreAndLess[0] += $bet;
+                $moreAndLess[1] = 0;
+                console.log($moreAndLess);
+                
             }}
-            class="p-2 relative {$moreAndLess === 0 ? 'bg-red-900' : ''}"
+            class="p-2 relative {$moreAndLess[0] > 0 ? 'bg-red-900' : ''}"
         >
             小
-            {#if $moreAndLess === 0 && smallBet > 0}
+            {#if $moreAndLess[0] > 0}
             <div class=" absolute top-0 left-0">
-                <BetImg bind:bet ={smallBet} w={"w-[2rem]"} />
+                <BetImg bind:bet ={$moreAndLess[0]} w={"w-[2rem]"} />
             </div>
                 
             {/if}
@@ -36,17 +35,17 @@
         <div class="p-2 bg-green-900">21</div>
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div
-            class="p-2 relative {$moreAndLess === 1 ? 'bg-red-900' : ''}"
+            class="p-2 relative {$moreAndLess[1] > 0 ? 'bg-red-900' : ''}"
             on:click={() => {
-                $moreAndLess = 1;
-                smallBet = 0;
-                bigBet +=$bet;
+                $moreAndLess[1] += $bet;
+                $moreAndLess[0] = 0;
+                console.log($moreAndLess);
             }}
         >
             大
-            {#if $moreAndLess === 1 && bigBet > 0}
+            {#if $moreAndLess[1] > 0}
             <div class=" absolute top-0 left-0">
-                <BetImg bind:bet ={bigBet} w={"w-[2rem]"} />
+                <BetImg bind:bet ={$moreAndLess[1]} w={"w-[2rem]"} />
             </div>
             {/if}
         </div>
