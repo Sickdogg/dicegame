@@ -61,7 +61,7 @@
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<div class="flex justify-center items-center" on:click={toggleAutoPlay}>
+<div class="flex justify-center items-center {$haveBet? "":"opacity-45"}" on:click={toggleAutoPlay}>
     <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
