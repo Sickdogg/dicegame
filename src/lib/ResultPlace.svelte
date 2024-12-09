@@ -1,6 +1,8 @@
 <script>
     import PadingLayout from "./components/PadingLayout.svelte";
     import { result } from '../stores/store.js';
+    
+     
 </script>
 
 <PadingLayout>
