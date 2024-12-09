@@ -1,6 +1,55 @@
 <script>
     import BetImg from "./components/BetImg.svelte";
+    import BetTransation from "./components/BetTransation.svelte";
+
     import { bet, countGame, haveBet } from "../stores/store.js";
+    import { onMount } from "svelte";
+
+    let screenWidth;
+    let screenHeight;
+    let diceItemArrays = [];
+    let diceItemXPostions;
+    let flyXPostions;
+    onMount(() => {
+        screenWidth = window.innerWidth / 2;
+        screenHeight = window.innerHeight;
+
+        for (let i = 0; i < diceItemArrays.length; i++) {
+            console.log(diceItemArrays[i].getBoundingClientRect().x);
+        }
+
+        window.addEventListener("resize", updateScreenSize);
+
+        diceItemXPostions = getDiceX();
+        flyXPostions = getFlyXPostions(diceItemXPostions);
+    });
+
+    function getDiceX() {
+        let array = [];
+        for (let i = 0; i < diceItemArrays.length; i++) {
+            array.push(diceItemArrays[i].getBoundingClientRect().x);
+        }
+        return array;
+    }
+
+    function getFlyXPostions(item) {
+        let array = [];
+        for (let i = 0; i < item.length; i++) {
+            if (item[i] > screenWidth) {
+                item[i] = screenWidth - item[i];
+                array.push(item[i]);
+            } else {
+                item[i] = screenWidth - item[i];
+                array.push(item[i]);
+            }
+        }
+        return array;
+    }
+
+    function updateScreenSize() {
+        screenWidth = window.innerWidth;
+        screenHeight = window.innerHeight;
+    }
     const diceImages = [
         "./dice0.svg",
         "./dice1.svg",
@@ -29,6 +78,7 @@
                 </div>
                 {#each countItem as Item, ItemIndex}
                     <div
+                        bind:this={diceItemArrays[ItemIndex]}
                         on:click={() => {
                             $haveBet = true;
                             $countGame[countIndex][ItemIndex] += $bet;
@@ -45,14 +95,15 @@
                         {ItemIndex}
 
                         {#if $countGame[countIndex][ItemIndex] > 0}
-                            <div
-                                class=" absolute top-1 left-0 w-full h-full flex justify-center items-end"
+                            <BetTransation
+                                bind:screenWidth={flyXPostions[ItemIndex]}
+                                bind:screenHeight
                             >
                                 <BetImg
                                     bind:bet={$countGame[countIndex][ItemIndex]}
                                     w={"w-[1.5rem]"}
                                 />
-                            </div>
+                            </BetTransation>
                         {/if}
                     </div>
                 {/each}

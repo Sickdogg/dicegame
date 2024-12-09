@@ -15,8 +15,15 @@
         screenWidth = window.innerWidth/2;
         screenHeight = window.innerHeight;
 
-        window.addEventListener("resize", updateScreenSize);
+        console.log(screenWidth);
         
+
+        window.addEventListener("resize", updateScreenSize);
+
+        // for (let i = 0; i < diceItemArrays.length; i++) {
+        //     console.log(diceItemArrays[i].getBoundingClientRect().x);
+            
+        // }
         diceItemXPostions = getDiceX();
         flyXPostions = getFlyXPostions(diceItemXPostions);
         
