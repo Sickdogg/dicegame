@@ -5,6 +5,7 @@
   import IconCountPlace from "./lib/IconCountPlace.svelte";
   import BetSetting from "./lib/BetSetting.svelte";
   import MoneyState from "./lib/MoneyState.svelte";
+  import ItemArea from "./lib/ItemArea.svelte";
 </script>
 
 <div class="w-[100dvw] h-[100dvh] flex justify-center items-center">
@@ -25,8 +26,9 @@
     </div>
 
     <!-- Footer -->
-    <div class="grid grid-cols-1 gap-4">
+    <div class="py-1 grid grid-cols-1 gap-4 bg-black bg-opacity-45 rounded-t-3xl">
       <div>
+        <ItemArea/>
         <BetSetting />
 
         <MoneyState />

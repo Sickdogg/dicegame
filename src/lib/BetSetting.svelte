@@ -14,7 +14,7 @@
     $: textColor = $bet > 25 ? 'text-black' : 'text-white';
 </script>
 
-<div class="bg-black bg-opacity-45 rounded-t-3xl">
+
     <div
         class="grid grid-cols-3 gap-1 text-center text-green-200 text-lg font-bold"
     >
@@ -29,7 +29,7 @@
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="size-8"
+                class="size-4"
             >
                 <path
                     stroke-linecap="round"
@@ -51,7 +51,7 @@
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="size-8"
+                class="size-4"
             >
                 <path
                     stroke-linecap="round"
@@ -61,4 +61,3 @@
             </svg>
         </button>
     </div>
-</div>
