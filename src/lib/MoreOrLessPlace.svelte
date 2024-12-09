@@ -1,8 +1,8 @@
 <script>
     import PadingLayout from "./components/PadingLayout.svelte";
     import BetImg from "./components/BetImg.svelte";
-    import { moreAndLess } from "../stores/store.js";
-    import {bet} from "../stores/store.js";
+    import { bet, moreAndLess, haveBet } from "../stores/store.js";
+    import {} from "../stores/store.js";
 
 </script>
 
@@ -14,6 +14,7 @@
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div
             on:click={() => {
+                $haveBet = true;
                 $moreAndLess[0] += $bet;
                 $moreAndLess[1] = 0;
                 console.log($moreAndLess);
@@ -37,6 +38,7 @@
         <div
             class="p-2 relative {$moreAndLess[1] > 0 ? 'bg-red-900' : ''}"
             on:click={() => {
+                $haveBet = true;
                 $moreAndLess[1] += $bet;
                 $moreAndLess[0] = 0;
                 console.log($moreAndLess);

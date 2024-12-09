@@ -1,8 +1,9 @@
 <script>
-    import {result} from '../../stores/store.js';
-    
+    import {result, haveBet} from '../../stores/store.js';
+
     // Function to generate a random array of six numbers between 0 and 6
     function generateRandomResult() {
+        if(!$haveBet) return;
         const interval = setInterval(() => {
             const newTempResult = Array.from({ length: 6 }, () => Math.floor(Math.random() * 6));
             $result = newTempResult;

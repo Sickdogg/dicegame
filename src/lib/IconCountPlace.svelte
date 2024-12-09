@@ -2,8 +2,8 @@
     import PadingLayout from "./components/PadingLayout.svelte";
     import BetImg from "./components/BetImg.svelte";
 
-    import { iconState } from "../stores/store.js";
-    import { bet } from "../stores/store.js";
+    import { bet, iconState, haveBet } from "../stores/store.js";
+
 
     const icons = [
         { src: "./dice0.svg", state: 0 },
@@ -33,6 +33,7 @@
             <div
                 on:click={() => {
                     if(isIconCountIsFive($iconState) && $iconState[index] == 0) return;
+                    $haveBet = true;
                     $iconState[index] += $bet;
                     if($iconState[index] > 300) $iconState[index] = 300;
                     console.log($iconState);

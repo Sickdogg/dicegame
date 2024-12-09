@@ -1,7 +1,6 @@
 <script>
     import BetImg from "./components/BetImg.svelte";
-    import { countGame } from "../stores/store.js";
-    import { bet } from "../stores/store.js";
+    import { bet, countGame, haveBet } from "../stores/store.js";
     const diceImages = [
         "./dice0.svg",
         "./dice1.svg",
@@ -31,6 +30,7 @@
                 {#each countItem as Item, ItemIndex}
                     <div
                         on:click={() => {
+                            $haveBet = true;
                             $countGame[countIndex][ItemIndex] += $bet;
                             if ($countGame[countIndex][ItemIndex] > 300)
                                 $countGame[countIndex][ItemIndex] = 300;

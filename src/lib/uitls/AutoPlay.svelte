@@ -1,6 +1,6 @@
 <script>
     import { onDestroy } from "svelte";
-    import { result } from "../../stores/store.js";
+    import { result, haveBet } from "../../stores/store.js";
 
     let isAutoPlaying = false;
     let interval;
@@ -20,6 +20,7 @@
     // }
 
     function toggleAutoPlay() {
+        if(!$haveBet) return;
         isAutoPlaying = !isAutoPlaying;
         console.log(isAutoPlaying);
         

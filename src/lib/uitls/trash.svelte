@@ -1,5 +1,5 @@
 <script>
-    import { iconState, moreAndLess, countGame } from "../../stores/store";
+    import { iconState, moreAndLess, countGame, haveBet } from "../../stores/store";
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -15,6 +15,7 @@
             [0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0],
         ];
+        $haveBet = false;
     }}
     class="flex justify-center items-center"
 >
