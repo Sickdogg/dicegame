@@ -3,7 +3,6 @@
     import BetImg from "./components/BetImg.svelte";
     import BetTransation from "./components/BetTransation.svelte";
     import { bet, moreAndLess, haveBet } from "../stores/store.js";
-    import { fly, fade } from "svelte/transition";
     import { onMount } from "svelte";
 
     let screenWidth;
@@ -52,7 +51,7 @@
                 $moreAndLess[1] = 0;
                 console.log($moreAndLess);
             }}
-            class="p-2 relative {$moreAndLess[0] > 0 ? 'bg-red-900' : ''}"
+            class="p-2 relative rounded-l-xl {$moreAndLess[0] > 0 ? 'bg-red-900' : ''}"
         >
             小
             {#if $moreAndLess[0] > 0}
@@ -69,7 +68,7 @@
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div
             bind:this={bigX}
-            class="p-2 relative {$moreAndLess[1] > 0 ? 'bg-red-900' : ''}"
+            class="p-2 relative rounded-r-xl {$moreAndLess[1] > 0 ? 'bg-red-900' : ''}"
             on:click={() => {
                 $haveBet = true;
                 $moreAndLess[1] += $bet;

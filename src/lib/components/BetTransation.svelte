@@ -18,6 +18,6 @@
     // }
 </script>
 
-<div in:fly={{x: screenWidth, y: screenHeight - 200, duration: 1000 }} out:fade class=" absolute top-0 left-0 w-full h-full flex justify-start items-center z-[990]">
+<div in:fly={{x: screenWidth, y: screenHeight - 200, duration: 500 }} out:fade class=" absolute top-0 left-0 w-full h-full flex justify-start items-center z-[990]">
     <slot></slot>
 </div>
