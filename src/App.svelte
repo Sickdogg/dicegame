@@ -6,35 +6,53 @@
   import BetSetting from "./lib/BetSetting.svelte";
   import MoneyState from "./lib/MoneyState.svelte";
   import ItemArea from "./lib/ItemArea.svelte";
+
+  import { playMusic } from "./stores/uitls/sound";
+  let showStartPlay = true;
 </script>
 
-<div class="w-[100dvw] h-[100dvh] flex justify-center items-center">
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+{#if showStartPlay}
   <div
-    class="px-1 w-full h-full max-w-[425px] flex flex-col justify-between bg-green-900"
+    on:click={() => {
+      showStartPlay = false;
+      $playMusic = true;
+    }}
+    class="w-[100dvw] h-[100dvh] flex justify-center items-center bg-green-900"
   >
-  <!-- Main -->
-    <div class="py-3 flex-1 flex flex-col justify-between">
-      <div class=" bg-black bg-opacity-65 rounded-3xl">
-        <ResultPlace />
-      </div>
-
-      <div class="grid grid-cols-1 gap-3 overflow-hidden rounded-2xl">
-        <MoreOrLessPlace />
-        <IconCountPlace />
-        <CountGamePlace />
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <div class="py-1 grid grid-cols-1 gap-4 bg-black bg-opacity-45 rounded-t-3xl">
-      <div>
-        <ItemArea/>
-        <BetSetting />
-
-        <MoneyState />
-      </div>
-    </div>
+    <p class="text-white">play</p>
   </div>
+{:else}
+  <div class="w-[100dvw] h-[100dvh] flex justify-center items-center">
+    <div
+      class="px-1 w-full h-full max-w-[425px] flex flex-col justify-between bg-green-900"
+    >
+      <!-- Main -->
+      <div class="py-3 flex-1 flex flex-col justify-between">
+        <div class=" bg-black bg-opacity-65 rounded-3xl">
+          <ResultPlace />
+        </div>
 
-  <!-- end -->
-</div>
+        <div class="grid grid-cols-1 gap-3 overflow-hidden rounded-2xl">
+          <MoreOrLessPlace />
+          <IconCountPlace />
+          <CountGamePlace />
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div
+        class="py-3 grid grid-cols-1 gap-4 bg-black bg-opacity-45 rounded-t-3xl"
+      >
+        <div>
+          <ItemArea />
+          <BetSetting />
+
+          <MoneyState />
+        </div>
+      </div>
+    </div>
+
+    <!-- end -->
+  </div>
+{/if}
