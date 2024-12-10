@@ -51,12 +51,12 @@
         screenHeight = window.innerHeight;
     }
     const diceImages = [
-        "./dice0.svg",
         "./dice1.svg",
         "./dice2.svg",
         "./dice3.svg",
         "./dice4.svg",
         "./dice5.svg",
+        "./dice6.svg",
     ];
 </script>
 

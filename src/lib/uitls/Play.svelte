@@ -3,18 +3,18 @@
 
     // Function to generate a random array of six numbers between 0 and 6
     function generateRandomResult() {
-        if(!$haveBet) return;
-        const interval = setInterval(() => {
-            const newTempResult = Array.from({ length: 6 }, () => Math.floor(Math.random() * 6));
-            $result = newTempResult;
-        }, 100); // Update tempResult every 100ms for animation
+    if (!$haveBet) return;
+    const interval = setInterval(() => {
+        const newTempResult = Array.from({ length: 6 }, () => Math.floor(Math.random() * 6) + 1);
+        $result = newTempResult;
+    }, 100); // Update tempResult every 100ms for animation
 
-        setTimeout(() => {
-            clearInterval(interval);
-            const newResult = Array.from({ length: 6 }, () => Math.floor(Math.random() * 6));
-            result.set(newResult);
-        }, 2000); // Show final result after 2 seconds
-    }
+    setTimeout(() => {
+        clearInterval(interval);
+        const newResult = Array.from({ length: 6 }, () => Math.floor(Math.random() * 6) + 1);
+        result.set(newResult);
+    }, 2000); // Show final result after 2 seconds
+}
 
     // Generate a random result when the component is created
     

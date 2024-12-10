@@ -59,12 +59,12 @@
 
 
     const icons = [
-        { src: "./dice0.svg", state: 0 },
         { src: "./dice1.svg", state: 1 },
         { src: "./dice2.svg", state: 2 },
         { src: "./dice3.svg", state: 3 },
         { src: "./dice4.svg", state: 4 },
         { src: "./dice5.svg", state: 5 },
+        { src: "./dice6.svg", state: 6 },
     ];
     function isIconCountIsFive(arr) {
         const zeroCount = arr.filter((num) => num === 0).length;
