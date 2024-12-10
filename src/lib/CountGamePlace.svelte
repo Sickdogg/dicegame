@@ -3,6 +3,7 @@
     import BetTransation from "./components/BetTransation.svelte";
 
     import { bet, countGame, haveBet } from "../stores/store.js";
+    import {isPlaying, isAutoPlaying} from "../stores/uitls/play.js";
     import { onMount } from "svelte";
 
     let screenWidth;
@@ -80,6 +81,7 @@
                     <div
                         bind:this={diceItemArrays[ItemIndex]}
                         on:click={() => {
+                            if ($isPlaying || $isAutoPlaying) return;
                             $haveBet = true;
                             $countGame[countIndex][ItemIndex] += $bet;
                             if ($countGame[countIndex][ItemIndex] > 300)

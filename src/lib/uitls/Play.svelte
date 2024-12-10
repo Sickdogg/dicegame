@@ -1,9 +1,13 @@
 <script>
     import {result, haveBet} from '../../stores/store.js';
+    import {isPlaying,isAutoPlaying} from '../../stores/uitls/play.js';
 
     // Function to generate a random array of six numbers between 0 and 6
     function generateRandomResult() {
-    if (!$haveBet) return;
+    if (!$haveBet || $isPlaying || $isAutoPlaying) return;
+    console.log("play");
+    
+    $isPlaying = true;
     const interval = setInterval(() => {
         const newTempResult = Array.from({ length: 6 }, () => Math.floor(Math.random() * 6) + 1);
         $result = newTempResult;
@@ -13,6 +17,7 @@
         clearInterval(interval);
         const newResult = Array.from({ length: 6 }, () => Math.floor(Math.random() * 6) + 1);
         result.set(newResult);
+        $isPlaying = false;
     }, 2000); // Show final result after 2 seconds
 }
 
@@ -21,7 +26,7 @@
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<div on:click={generateRandomResult} class="flex justify-center items-center {$haveBet? "":"opacity-45"}">
+<div on:click={generateRandomResult} class="flex justify-center items-center {$haveBet&&!$isPlaying&&!$isAutoPlaying? "":"opacity-45"}">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-white">
         <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
       </svg>

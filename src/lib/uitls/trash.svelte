@@ -1,10 +1,12 @@
 <script>
     import { iconState, moreAndLess, countGame, haveBet } from "../../stores/store";
+    import { isPlaying, isAutoPlaying } from "../../stores/uitls/play";
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
     on:click={() => {
+        if (!$haveBet || $isPlaying || $isAutoPlaying) return;
         $iconState = [0, 0, 0, 0, 0, 0];
         $moreAndLess = [0, 0];
         $countGame = [
@@ -17,7 +19,7 @@
         ];
         $haveBet = false;
     }}
-    class="flex justify-center items-center"
+    class="flex justify-center items-center {$haveBet && !$isPlaying && !$isAutoPlaying ? "" : "opacity-45"}"
 >
     <svg
         xmlns="http://www.w3.org/2000/svg"

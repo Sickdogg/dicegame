@@ -3,6 +3,7 @@
     import BetImg from "./components/BetImg.svelte";
     import BetTransation from "./components/BetTransation.svelte";
     import { bet, moreAndLess, haveBet } from "../stores/store.js";
+    import {isPlaying, isAutoPlaying} from "../stores/uitls/play.js";
     import { onMount } from "svelte";
 
     let screenWidth;
@@ -46,6 +47,7 @@
         <div
             bind:this={smallX}
             on:click={() => {
+                if ($isPlaying || $isAutoPlaying) return;
                 $haveBet = true;
                 $moreAndLess[0] += $bet;
                 $moreAndLess[1] = 0;
@@ -70,6 +72,7 @@
             bind:this={bigX}
             class="p-2 relative rounded-r-xl {$moreAndLess[1] > 0 ? 'bg-red-900' : ''}"
             on:click={() => {
+                if ($isPlaying || $isAutoPlaying) return;
                 $haveBet = true;
                 $moreAndLess[1] += $bet;
                 $moreAndLess[0] = 0;

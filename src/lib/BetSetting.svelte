@@ -1,8 +1,10 @@
 <script>
     import { bet } from '../stores/store.js';
+    import {isPlaying, isAutoPlaying} from "../stores/uitls/play.js";
     import BetImg from './components/BetImg.svelte';
 
     function decrement() {
+        if ($isPlaying || $isAutoPlaying) return;
         bet.update(n => {
             const newValue = Math.floor(n / 2); // 减少时除以 2
             return Math.max(newValue, 1); // 确保最小值为 1
@@ -10,6 +12,7 @@
     }
 
     function increment() {
+        if ($isPlaying || $isAutoPlaying) return;
         bet.update(n => {
             const newValue = n * 2; // 增加时乘以 2
             return Math.min(newValue, 300); // 确保最大值为 300
@@ -32,7 +35,7 @@
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            class="size-4"
+            class="size-4 text-white"
         >
             <path
                 stroke-linecap="round"
@@ -56,7 +59,7 @@
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            class="size-4"
+            class="size-4 text-white"
         >
             <path
                 stroke-linecap="round"

@@ -1,8 +1,9 @@
 <script>
     import { onDestroy } from "svelte";
     import { result, haveBet } from "../../stores/store.js";
+    import {isPlaying, isAutoPlaying} from "../../stores/uitls/play.js";
 
-    let isAutoPlaying = false;
+    
     let interval;
 
     // function toggleAutoPlay() {
@@ -20,11 +21,11 @@
     // }
 
     function toggleAutoPlay() {
-        if(!$haveBet) return;
-        isAutoPlaying = !isAutoPlaying;
-        console.log(isAutoPlaying);
+        if(!$haveBet || $isPlaying) return;
+        $isAutoPlaying = !$isAutoPlaying;
+        console.log($isAutoPlaying);
         
-        if (isAutoPlaying) {
+        if ($isAutoPlaying) {
             generateRandomResult();
             interval = setInterval(() => {
                 generateRandomResult();
@@ -41,7 +42,7 @@
     function generateRandomResult() {
         const RandomResultInterval = setInterval(() => {
             const newTempResult = Array.from({ length: 6 }, () =>
-                Math.floor(Math.random() * 6),
+                Math.floor(Math.random() * 6)+1,
             );
             $result = newTempResult;
         }, 100); // Update tempResult every 100ms for animation
@@ -49,7 +50,7 @@
         setTimeout(() => {
             clearInterval(RandomResultInterval);
             const newResult = Array.from({ length: 6 }, () =>
-                Math.floor(Math.random() * 6),
+                Math.floor(Math.random() * 6)+1,
             );
             result.set(newResult);
         }, 2000); // Show final result after 2 seconds
@@ -61,14 +62,14 @@
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<div class="flex justify-center items-center {$haveBet? "":"opacity-45"}" on:click={toggleAutoPlay}>
+<div class="flex justify-center items-center {$haveBet&&!$isPlaying? "":"opacity-45"}" on:click={toggleAutoPlay}>
     <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
         stroke-width="1.5"
         stroke="currentColor"
-        class="size-6 text-white"
+        class="size-6 text-white { $isAutoPlaying ? 'rotate' : '' }"
     >
         <path
             stroke-linecap="round"
@@ -77,3 +78,18 @@
         />
     </svg>
 </div>
+
+<style>
+    @keyframes rotate {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .rotate {
+        animation: rotate 2s linear infinite;
+    }
+</style>

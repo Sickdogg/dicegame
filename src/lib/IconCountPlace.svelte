@@ -4,6 +4,7 @@
     import BetTransation from "./components/BetTransation.svelte";
 
     import { bet, iconState, haveBet } from "../stores/store.js";
+    import {isPlaying, isAutoPlaying} from "../stores/uitls/play.js";
     import { onMount } from "svelte";
 
     let screenWidth;
@@ -87,6 +88,7 @@
             <div
             bind:this = {diceItemArrays[index]}
                 on:click={() => {
+                    if ($isPlaying || $isAutoPlaying) return;
                     if(isIconCountIsFive($iconState) && $iconState[index] == 0) return;
                     $haveBet = true;
                     $iconState[index] += $bet;
